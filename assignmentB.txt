@@ -1,0 +1,18 @@
+Big Data Assigment B write_up
+By:Chao Zhu
+1. generate data(createdata.py)
+I first set my stock symbols to the range of: 
+SYMBOL=['A','AAPL','ORCL','C','GOOG','HOG','HPQ','INTC','KO','LUV','MMM','MSFT','T','TGT','TXN','WMT']
+and I used python interface of web.DataReader to crwal the adjust close price of all these symbols from2014/1/1 to 2014/12/31 to get the lognormal mean and stand deviation of these stock stickers.
+After that I generate a data.txt file with 5 columns:
+Date:start from 2014/1/1 and ends in n days which you can easily adjust.
+TIME:start begin at 10:00:00 am and end in 16:00:00 gap is one second(here just tomake things simple iassume every seconds will happen a trade.)
+SYMBOL: I generate a random number through all these stickers and randomly pick a SYMBOL such as 'A'.
+PRICE:Since I have Calculate the mean and stand deviation of log terms of each stock so I can use it generate a lognormal distribution and get the price.
+VLOUME:I generate a uniform distribution from 1000 to 10000
+After i generate the data, I read it into Q and make a table called trade.
+Since I have the Date and Symbol of the trade I calculate the VWAP of trade group by Date and Symbol.
+to run the code you should first start q.
+Then use the function .taq.get_daily_vwap_file[“input_data.csv”;”output_VWAP.csv”]
+You can set the location of the file in your computer.
+I output my result to a csv file.
